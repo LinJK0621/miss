@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迷失 Missing - 2D探索解謎遊戲</title>
+    <style>
+        :root {
+            --bg-color: #fff9f0;
+            --text-color: #5d4037;
+            --accent-pink: #ff8a80;
+            --accent-brown: #8d6e63;
+            --card-white: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* 頂部 Hero 區域 */
+        .hero {
+            position: relative;
+            text-align: center;
+            background: #fdf2e9;
+            padding-bottom: 80px;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 1200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .logo {
+            max-width: 350px;
+            margin-top: -100px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 核心內涵 */
+        .philosophy {
+            text-align: center;
+            font-size: 1.1rem;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            border: 4px dashed var(--accent-pink);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 80px;
+        }
+
+        /* 角色區塊 */
+        .character-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .char-card {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            border: 2px solid #fce4ec;
+            transition: 0.3s;
+        }
+
+        .char-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .char-card img { width: 100%; max-width: 250px; margin-bottom: 20px; }
+
+        .role-tag {
+            display: inline-block;
+            background: var(--accent-pink);
+            color: white;
+            padding: 2px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* 武器與系統區塊 */
+        .system-section {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .weapon-box {
+            background: #fff0f3;
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            border: 2px solid #ffc1cc;
+        }
+
+        .weapon-box img {
+            width: 180px;
+            filter: drop-shadow(0 5px 10px rgba(255,138,128,0.3));
+            margin: 20px 0;
+        }
+
+        /* 集點卡 */
+        .stamp-card {
+            background: #efebe9;
+            padding: 30px;
+            border-radius: 30px;
+            border: 2px solid #d7ccc8;
+        }
+
+        .stamp-grid {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stamp {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px dashed #bcaaa4;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* 結局 */
+        .ending-choice {
+            text-align: center;
+            background: linear-gradient(135deg, #ff8a80 0%, #ff5252 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 40px;
+            margin-bottom: 80px;
+        }
+
+        h2 { text-align: center; color: var(--accent-pink); margin-bottom: 40px; font-size: 1.8rem; }
+        footer { text-align: center; padding: 40px; background: #5d4037; color: #d7ccc8; }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <img src="A3.png" alt="遊戲主視覺" class="hero-banner">
+        <img src="logo.png" alt="遊戲 Logo" class="logo">
+    </header>
+
+    <div class="container">
+        
+        <section class="philosophy">
+            <p><strong>「迷失」與「Missing」</strong>：瑪朵在糖果世界中遺失了自我與記憶。</p>
+            <p>這個世界充滿虛假的甜蜜，正如糖果背後的危害，讓人沉溺卻危險。</p>
+        </section>
+
+        <h2>✦ 主要角色 ✦</h2>
+        <section class="character-grid">
+            <div class="char-card">
+                <img src="Scene1_007.png" alt="瑪朵">
+                <div class="role-tag">主角</div>
+                <h3>瑪朵 (Maduo)</h3>
+                <p>陷入昏迷的甜點師。在意識的糖果世界中，她必須蒐集記憶碎片，找回生存的方向與希望。</p>
+            </div>
+            <div class="char-card">
+                <img src="Scene1_000.png" alt="皮皮">
+                <div class="role-tag">指引者</div>
+                <h3>皮皮 (Pipi)</h3>
+                <p><strong>瑪朵的指引者。</strong> 在神祕的王國中守護瑪朵，引導她避開虛假的誘惑，一步步找回真實的自我。</p>
+            </div>
+        </section>
+
+        <h2>✦ 冒險與武裝 ✦</h2>
+        <section class="system-section">
+            <div class="weapon-box">
+                <div class="role-tag" style="background:var(--accent-brown)">核心裝備</div>
+                <h3>甜蜜重擊：棒棒糖</h3>
+                <img src="棒棒糖.png" alt="武器：棒棒糖">
+                <p>隨著記憶碎片集齊而獲得的強力武器。看似甜蜜的外表下，隱藏著擊碎虛假幻象的力量。</p>
+            </div>
+            <div class="stamp-card">
+                <h3>記憶集點卡</h3>
+                <p>每收集一個碎片，就能蓋下一枚印章。這不僅是故事推進的關鍵，還能解鎖<strong>二段跳</strong>、<strong>衝刺</strong>等新技能。</p>
+                <div class="stamp-grid">
+                    <div class="stamp" style="color:#ff8a80">❤</div>
+                    <div class="stamp" style="color:#ff8a80">❤</div>
+                    <div class="stamp" style="color:#ff8a80">❤</div>
+                    <div class="stamp">?</div>
+                    <div class="stamp">?</div>
+                </div>
+                <p style="font-size: 0.9rem; margin-top: 20px;">★ 打怪掉落的「奶油能量」可累積恢復血量或發動大招！</p>
+            </div>
+        </section>
+
+        <section class="ending-choice">
+            <h2>雙重結局的抉擇</h2>
+            <p>當最後的記憶碎片集齊，你將面對「內心的自我」BOSS。</p>
+            <p style="font-size: 1.3rem; margin-top: 20px;"><strong>留在糖果王國的沉睡甜蜜？</strong><br>或者<br><strong>勇敢睜開眼面對殘酷現實？</strong></p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 《迷失 Missing》製作組 - 找回自我的糖果冒險</p>
+    </footer>
+
+</body>
+</html>
